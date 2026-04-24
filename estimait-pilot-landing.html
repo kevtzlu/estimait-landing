@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESTIMAIT — Founding GC Partner Program</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #07101F;
+      --navy-mid:    #0C1A2E;
+      --navy-light:  #112240;
+      --navy-border: rgba(255,255,255,0.07);
+      --white:       #ffffff;
+      --gray-300:    #b0bec5;
+      --gray-500:    #7a8ea0;
+      --gold:        #F5B800;
+      --gold-light:  #FFD14D;
+      --gold-dim:    rgba(245,184,0,0.12);
+      --gold-border: rgba(245,184,0,0.30);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(7,16,31,0.90);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--navy-border);
+    }
+    .logo {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .logo .gold { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 24px 90px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(ellipse 90% 60% at 50% 30%, #0E2040 0%, var(--navy) 70%);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245,184,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,184,0,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 10%; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 500px;
+      background: radial-gradient(ellipse, rgba(245,184,0,0.10) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; } 50% { opacity:0.35; }
+    }
+
+    .hero h1 {
+      position: relative;
+      font-size: clamp(44px, 7.5vw, 92px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      max-width: 920px;
+    }
+    .hero h1 .gold { color: var(--gold); }
+
+    .hero-sub {
+      position: relative;
+      margin-top: 28px;
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--gray-500);
+      max-width: 560px;
+      line-height: 1.70;
+    }
+
+    .hero-actions {
+      position: relative;
+      margin-top: 48px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px 38px;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(245,184,0,0.28);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--gray-300);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px 32px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.14);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.32);
+      color: var(--white);
+    }
+
+    .hero-stats {
+      position: relative;
+      margin-top: 80px;
+      display: flex;
+      gap: 64px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+    }
+    .hero-stat .lbl {
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+
+    /* ── STORY BAND ── */
+    .story-band {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--navy-border);
+      border-bottom: 1px solid var(--navy-border);
+      padding: 80px 24px;
+    }
+    .story-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .story-quote {
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: -0.02em;
+    }
+    .story-quote em { font-style: normal; color: var(--gold); }
+    .story-attr {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--gray-500);
+    }
+
+    /* ── YOUTUBE SECTION ── */
+    .video-section {
+      padding: 100px 24px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+    .section-sub {
+      margin-top: 14px;
+      font-size: 17px;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+    .video-wrapper {
+      margin-top: 48px;
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--navy-border);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px var(--gold-border);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ── THREE PILLARS ── */
+    .pillars-section {
+      padding: 80px 24px 100px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pillars-grid {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2px;
+      background: var(--navy-border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .pillar {
+      background: var(--navy-mid);
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: background 0.2s;
+    }
+    .pillar:hover { background: var(--navy-light); }
+    .pillar-icon {
+      width: 48px; height: 48px;
+      border-radius: 10px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .pillar-tag {
+      display: inline-flex;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+    .pillar h3 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+    .pillar p {
+      font-size: 15px;
+      color: var(--gray-500);
+      line-height: 1.72;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-section {
+      padding: 0 24px 100px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .steps {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      border-left: 2px solid rgba(245,184,0,0.18);
+      padding-left: 0;
+    }
+    .step {
+      display: flex;
+      gap: 40px;
+      padding: 0 0 56px 52px;
+      position: relative;
+    }
+    .step::before {
+      content: '';
+      position: absolute;
+      left: -8px; top: 0;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--navy);
+    }
+    .step-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      min-width: 60px;
+      padding-top: 2px;
+    }
+    .step-content h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .step-content p {
+      font-size: 15px;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+
+    /* ── PILOT OFFER ── */
+    .offer-section {
+      padding: 0 24px 120px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .offer-card {
+      background: linear-gradient(135deg, #0B1D35 0%, var(--navy-mid) 60%);
+      border: 1px solid var(--gold-border);
+      border-radius: 20px;
+      padding: 72px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-card::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,184,0,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .offer-spots {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .offer-left h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .offer-left p {
+      font-size: 16px;
+      color: var(--gray-500);
+      line-height: 1.72;
+      margin-bottom: 36px;
+    }
+    .offer-note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+    .offer-right-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 20px;
+    }
+    .benefit-list { list-style: none; display: flex; flex-direction: column; }
+    .benefit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--navy-border);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .benefit-list li:last-child { border-bottom: none; }
+    .check {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 10px;
+      color: var(--gold);
+    }
+    .ask-list {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid var(--navy-border);
+    }
+    .ask-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+    .ask-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      background: var(--gold-dim);
+      width: 20px; height: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--navy-border);
+      padding: 36px 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: var(--navy-mid);
+    }
+    .footer-logo {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .footer-logo .gold { color: var(--gold); }
+    .footer-text { font-size: 13px; color: var(--gray-500); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .offer-card { grid-template-columns: 1fr; gap: 48px; padding: 40px 28px; }
+      .hero-stats { gap: 36px; }
+      .video-section, .pillars-section, .how-section, .offer-section { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">ESTIM<span class="gold">A</span>IT</div>
+  <a href="#apply" class="nav-cta">Apply Now →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    Now Accepting 5 Founding Partners
+  </div>
+
+  <h1>Stop Losing Bids<br>to <span class="gold">Faster Teams.</span></h1>
+
+  <p class="hero-sub">
+    ESTIMAIT delivers structured cost estimates for commercial and industrial projects in under 10 minutes—so you bid more, wait less, and win on timing.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#apply" class="btn-primary">Become a Founding Partner →</a>
+    <a href="#demo" class="btn-ghost">Watch the Demo ↓</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">10 min</div>
+      <div class="lbl">From upload to full estimate</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">14 days</div>
+      <div class="lbl">Typical GC turnaround today</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">3 scenarios</div>
+      <div class="lbl">Low / Mid / High in every run</div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY BAND -->
+<div class="story-band">
+  <div class="story-inner">
+    <p class="story-quote">
+      "We didn't lose because our price was wrong.<br>
+      We lost because <em>someone else moved faster.</em>"
+    </p>
+    <p class="story-attr">— Heard from dozens of GCs across the U.S.</p>
+  </div>
+</div>
+
+<!-- YOUTUBE DEMO -->
+<div class="video-section" id="demo">
+  <div class="section-label">See It in Action</div>
+  <h2 class="section-title">Watch ESTIMAIT Run a Real Bid</h2>
+  <p class="section-sub">Upload your Basis of Design. Get three cost scenarios in minutes. Here's exactly what that looks like.</p>
+
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/zviGEzd3bqU"
+      title="ESTIMAIT Demo"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<!-- THREE PILLARS -->
+<div class="pillars-section" id="features">
+  <div class="section-label">Why ESTIMAIT</div>
+  <h2 class="section-title">Built for the Way GCs Actually Bid</h2>
+  <p class="section-sub">Every feature is designed around the realities of commercial and industrial estimating—not theory.</p>
+
+  <div class="pillars-grid">
+    <div class="pillar">
+      <div class="pillar-icon">⚡</div>
+      <div class="pillar-tag">Speed</div>
+      <h3>Estimate in 10 Minutes,<br>Not 10 Days</h3>
+      <p>Upload your Basis of Design, add the project location, and get a fully structured estimate before your competition even opens the drawings. Works for both design-build and design-bid-build projects—no re-learning your workflow.</p>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-icon">📊</div>
+      <div class="pillar-tag">Clarity</div>
+      <h3>Three Cost Scenarios,<br>One Submission</h3>
+      <p>Every estimate delivers Low, Mid, and High cost scenarios with a detailed line-item breakdown—so you walk into every bid with a range, not just a number. Built-in risk flags surface the variables most likely to move your price before they surprise you on-site.</p>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-icon">🎯</div>
+      <div class="pillar-tag">Simplicity</div>
+      <h3>No New Software.<br>No Learning Curve.</h3>
+      <p>If your team can fill out a project brief, they can run an ESTIMAIT estimate. No complex onboarding, no dedicated estimating software to integrate. Designed for the field, not the IT department.</p>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-section" id="how">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title">From Drawings to Estimate<br>in Three Steps</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">Step 01</div>
+      <div class="step-content">
+        <h4>Upload Your Basis of Design</h4>
+        <p>Drop in your project scope document or design drawings. ESTIMAIT reads the specs and extracts the key cost drivers automatically.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 02</div>
+      <div class="step-content">
+        <h4>Confirm Project Location & Type</h4>
+        <p>Add the project location and select commercial or industrial. Regional labor rates and material costs are pulled in automatically.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 03</div>
+      <div class="step-content">
+        <h4>Receive Your Structured Estimate</h4>
+        <p>Get three cost scenarios (Low / Mid / High), a detailed line-item breakdown, and flagged risk items—all within 10 minutes. Ready to review, adjust, and submit.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PILOT OFFER -->
+<div class="offer-section" id="apply">
+  <div class="offer-card">
+    <div class="offer-left">
+      <div class="offer-spots">🔒 Only 5 Spots Available</div>
+      <h2>Become a Founding GC Partner</h2>
+      <p>We're inviting five commercial and industrial GCs to shape how ESTIMAIT works before we open to the market. Your team's feedback on real bids will directly define the product.</p>
+      <a href="mailto:getpick2002@gmail.com?subject=ESTIMAIT Founding GC Partner Application" class="btn-primary" style="display:block; text-align:center;">
+        Apply for a Partner Spot →
+      </a>
+      <p class="offer-note">✉ Or email us directly — we reply within 24 hours</p>
+    </div>
+
+    <div class="offer-right">
+      <div class="offer-right-title">What You Get</div>
+      <ul class="benefit-list">
+        <li>
+          <span class="check">✓</span>
+          <span><strong>Free access for 3 months</strong> — no cost, no commitment during the pilot</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span><strong>Early-adopter pricing locked in</strong> before ESTIMAIT launches publicly</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span><strong>1-on-1 session support</strong> — our team joins every bid you run with us</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span><strong>Direct influence on the roadmap</strong> — your workflow shapes the final product</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span><strong>Zero obligation</strong> — if ESTIMAIT doesn't help, walk away with no strings</span>
+        </li>
+      </ul>
+
+      <div class="ask-list">
+        <div class="offer-right-title">What We Ask in Return</div>
+        <div class="ask-item">
+          <span class="ask-num">1</span>
+          <span>Run at least <strong>3 real bids</strong> through ESTIMAIT over 3 months</span>
+        </div>
+        <div class="ask-item">
+          <span class="ask-num">2</span>
+          <span>Share <strong>30 minutes of feedback</strong> after each bid session</span>
+        </div>
+        <div class="ask-item">
+          <span class="ask-num">3</span>
+          <span>If it's useful — a <strong>short testimonial</strong> we can share with future partners</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ESTIM<span class="gold">A</span>IT</div>
+  <div class="footer-text">Built for commercial & industrial GCs bidding $10M+ projects.</div>
+</footer>
+
+</body>
+</html>
