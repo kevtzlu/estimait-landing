@@ -44,17 +44,11 @@
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--navy-border);
     }
-    .logo {
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      gap: 0;
+    .logo img {
+      height: 32px;
+      width: auto;
+      display: block;
     }
-    .logo .gold { color: var(--gold); }
     .nav-cta {
       background: var(--gold);
       color: var(--navy);
@@ -528,8 +522,8 @@
 
 <!-- NAV -->
 <nav>
-  <div class="logo">ESTIM<span class="gold">A</span>IT</div>
-  <a href="#apply" class="nav-cta">Apply Now →</a>
+  <div class="logo"><img src="logo_ESTIMAIT-03.png" alt="ESTIMAIT" /></div>
+  <a href="https://calendly.com/kevin_dotbrand/estimait" target="_blank" class="nav-cta">Apply Now →</a>
 </nav>
 
 <!-- HERO -->
@@ -549,7 +543,7 @@
   </p>
 
   <div class="hero-actions">
-    <a href="#apply" class="btn-primary">Become a Founding Partner →</a>
+    <a href="https://calendly.com/kevin_dotbrand/estimait" target="_blank" class="btn-primary">Become a Founding Partner →</a>
     <a href="#demo" class="btn-ghost">Watch the Demo ↓</a>
   </div>
 
@@ -564,7 +558,7 @@
     </div>
     <div class="hero-stat">
       <div class="num">3 scenarios</div>
-      <div class="lbl">Low / Mid / High in every run</div>
+      <div class="lbl">Conservative / Mid Price / Optimistic</div>
     </div>
   </div>
 </section>
@@ -642,15 +636,15 @@
     <div class="step">
       <div class="step-num">Step 02</div>
       <div class="step-content">
-        <h4>Confirm Project Location & Type</h4>
-        <p>Add the project location and select commercial or industrial. Regional labor rates and material costs are pulled in automatically.</p>
+        <h4>Confirm Project Detail</h4>
+        <p>Confirm the project details.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">Step 03</div>
       <div class="step-content">
         <h4>Receive Your Structured Estimate</h4>
-        <p>Get three cost scenarios (Low / Mid / High), a detailed line-item breakdown, and flagged risk items—all within 10 minutes. Ready to review, adjust, and submit.</p>
+        <p>Get three cost scenarios (Conservative / Mid Price / Optimistic), a detailed line-item breakdown, and flagged risk items—all within 10 minutes. Ready to review, adjust, and submit.</p>
       </div>
     </div>
   </div>
@@ -663,10 +657,11 @@
       <div class="offer-spots">🔒 Only 5 Spots Available</div>
       <h2>Become a Founding GC Partner</h2>
       <p>We're inviting five commercial and industrial GCs to shape how ESTIMAIT works before we open to the market. Your team's feedback on real bids will directly define the product.</p>
-      <a href="mailto:getpick2002@gmail.com?subject=ESTIMAIT Founding GC Partner Application" class="btn-primary" style="display:block; text-align:center;">
+      <a href="https://calendly.com/kevin_dotbrand/estimait" target="_blank" class="btn-primary" style="display:block; text-align:center;">
         Apply for a Partner Spot →
       </a>
-      <p class="offer-note">✉ Or email us directly — we reply within 24 hours</p>
+      <p class="offer-note">📅 Pick a time that works for you — 15 minutes, no pressure</p>
+      <p class="offer-note" style="margin-top:8px;">✉ Or email us directly — <a href="mailto:info@estimait.io" style="color:var(--gold); text-decoration:none;">info@estimait.io</a></p>
     </div>
 
     <div class="offer-right">
@@ -715,7 +710,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">ESTIM<span class="gold">A</span>IT</div>
+  <div class="footer-logo"><img src="logo_ESTIMAIT-03.png" alt="ESTIMAIT" style="height:24px; width:auto;" /></div>
   <div class="footer-text">Built for commercial & industrial GCs bidding $10M+ projects.</div>
 </footer>
 
